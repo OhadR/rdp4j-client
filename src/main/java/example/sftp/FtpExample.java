@@ -21,6 +21,12 @@ public class FtpExample {
     @Option(name="-host")
     private String host = "vbox.localdomain";
 
+    @Option(name="-username")
+    private String username = "root";
+
+    @Option(name="-password")
+    private String password = "nicecti1!";
+
     public static void main(String[] args) throws Exception 
     {
         new FtpExample().doMain(args);
@@ -64,8 +70,6 @@ public class FtpExample {
         }
 
         System.out.println("monitoring directory: " + path);
-        String username = "root";
-        String password = "nicecti1!";
         PolledDirectory polledDirectory = new SFtpDirectory(host, path, username, password);
 
         DirectoryPoller dp = DirectoryPoller.newBuilder()
